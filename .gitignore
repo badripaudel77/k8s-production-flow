@@ -1,0 +1,51 @@
+# Maven
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Build
+*.class
+
+# Docker
+*.jar
+*.war
+*.ear
+
+# Node/npm (if any)
+node_modules/
+
+# Misc
+*.swp
+*.swo
+
+# Ignore env files
+.env
+
+# Ignore generated files
+/build/
+/dist/
+
+# Ignore local run configs
+*.local
+
+# Ignore test reports
+/test-output/
+/coverage/
+
+# Ignore by default
+!.gitignore

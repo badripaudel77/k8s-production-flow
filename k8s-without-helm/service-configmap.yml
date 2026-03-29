@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: service-config
+data:
+  SERVICEA_URL: "http://service-a:8080/message"
+  SPRING_APPLICATION_NAME_A: "service-a"
+  SPRING_APPLICATION_NAME_B: "service-b"
