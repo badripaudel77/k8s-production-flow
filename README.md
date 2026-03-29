@@ -1,3 +1,25 @@
+# What is This Repository?
+
+This repository demonstrates a complete, production-ready microservices architecture using Spring Boot, Docker, Kubernetes, and Helm. It is designed as a hands-on example for building, containerizing, and orchestrating Java microservices in a modern cloud-native environment.
+
+## What is Kubernetes?
+
+Kubernetes (K8s) is an open-source platform for automating deployment, scaling, and management of containerized applications. It provides:
+- **Automated container orchestration** (start, stop, restart, and scale containers)
+- **Service discovery and load balancing**
+- **Self-healing** (auto-restart, reschedule, replace failed containers)
+- **Declarative configuration and automation**
+- **Secret and configuration management**
+
+## Why Do We Need Kubernetes?
+
+Kubernetes enables you to:
+- Run and manage applications reliably at scale
+- Automate rollouts, rollbacks, and scaling
+- Ensure high availability and fault tolerance
+- Simplify deployment and operations across environments (dev, staging, production)
+- Manage configuration and secrets securely
+
 # Complete K8s Production
 
 This project demonstrates a production-ready microservices architecture using Spring Boot, Docker, Kubernetes, and Helm. It includes two simple Java microservices (service-a and service-b) that communicate via REST APIs, containerized with Docker, orchestrated with Kubernetes, and managed using Helm charts.
