@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-a
+spec:
+  replicas: {{ .Values.serviceA.replicaCount }}
+  selector:
+    matchLabels:
+      app: service-a
+  template:
+    metadata:
+      labels:
+        app: service-a
+    spec:
+      containers:
+        - name: service-a
+          image: {{ .Values.serviceA.image.repository }}:{{ .Values.serviceA.image.tag }}
+          imagePullPolicy: {{ .Values.serviceA.image.pullPolicy }}
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_APPLICATION_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: service-config
+                  key: SPRING_APPLICATION_NAME_A
+            - name: MY_SECRET_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: service-secret
+                  key: MY_SECRET_PASSWORD
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-a
+spec:
+  selector:
+    app: service-a
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP

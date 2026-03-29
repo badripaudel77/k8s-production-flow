@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: service-config
+data:
+  SERVICEA_URL: "{{ .Values.configmap.serviceAUrl }}"
+  SPRING_APPLICATION_NAME_A: "{{ .Values.configmap.springAppNameA }}"
+  SPRING_APPLICATION_NAME_B: "{{ .Values.configmap.springAppNameB }}"

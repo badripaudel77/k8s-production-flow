@@ -1,0 +1,58 @@
+# Default values for my-app-chart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# This will set the replicaset count more information can be found here: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
+serviceA:
+  image:
+    repository: badripaudel77/service-a
+    tag: "1.0"
+    pullPolicy: Always
+  replicaCount: 2
+  port: 8080
+  serviceType: ClusterIP
+  appName: service-a
+serviceB:
+  image:
+    repository: badripaudel77/service-b
+    tag: "1.0"
+    pullPolicy: IfNotPresent
+  replicaCount: 1
+  port: 8081
+  serviceType: ClusterIP
+  appName: service-b
+  serviceAUrl: http://service-a:8080/message
+
+configmap:
+  serviceAUrl: http://service-a:8080/message
+  springAppNameA: service-a
+  springAppNameB: service-b
+
+secret:
+  mySecretPassword: cGFzc3dvcmQxMjM=
+  secretKey: cmVwbGFjZV90aGlzX3dpdGhfYV9yZWFsX3NlY3JldA==
+
+# This section builds out the service account more information can be found here: https://kubernetes.io/docs/concepts/security/service-accounts/
+serviceAccount:
+  # Specifies whether a service account should be created.
+  create: true
+  # Automatically mount a ServiceAccount's API credentials?
+  automount: true
+  # Annotations to add to the service account.
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template.
+  name: ""
+
+# This is for setting Kubernetes Annotations to a Pod.
+# For more information checkout: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+podAnnotations: {}
+# This is for setting Kubernetes Labels to a Pod.
+# For more information checkout: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+
+# This is for setting up a service more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/
+service:
+  # This sets the service type more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
+  type: ClusterIP
+  # This sets the ports more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#field-spec-ports
+  port: 80
